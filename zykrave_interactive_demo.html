@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Features Demo</title>
+    <style>
+        :root {
+            --primary: #6d28d9;
+            --dark-void: #0f172a;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --transition-premium: cubic-bezier(0.17, 0.55, 0.55, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+        }
+
+        /* Task 1: Scroll Reveal Styles */
+        .reveal-section {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s var(--transition-premium), 
+                        transform 0.8s var(--transition-premium);
+            margin-bottom: 100px;
+        }
+
+        .reveal-section.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+        }
+
+        p.subtitle {
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* Task 2: Feature Grid & Sibling Blur */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            /* Container for the blur effect */
+            isolation: isolate;
+        }
+
+        .feature-item {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s var(--transition-premium), 
+                        filter 0.5s ease, 
+                        opacity 0.5s ease,
+                        box-shadow 0.5s ease,
+                        background 0.5s ease;
+            overflow: hidden;
+        }
+
+        /* The "Pop" effect */
+        .feature-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(109, 40, 217, 0.2);
+            z-index: 10;
+        }
+
+        /* Target all items when grid is hovered */
+        .feature-grid:hover .feature-item {
+            filter: blur(5px);
+            opacity: 0.3;
+        }
+
+        /* Override for the one being specifically hovered */
+        .feature-grid .feature-item:hover {
+            filter: blur(0px);
+            opacity: 1;
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .desc {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        /* Staggered Delay Logic via JS Init */
+
+        footer {
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <header class="reveal-section">
+            <p class="subtitle">Design Evolution</p>
+            <h1>INTERACTIVE DEMO</h1>
+        </header>
+
+        <section class="feature-grid">
+            <!-- Items will be revealed independently -->
+            <div class="feature-item reveal-section">
+                <div class="icon">🎬</div>
+                <h3>Atmospheric Vision</h3>
+                <p class="desc">Crafting cinematic experiences that blur the lines between reality and narrative.</p>
+            </div>
+
+            <div class="feature-item reveal-section">
+                <div class="icon">📷</div>
+                <h3>Quiet Lens</h3>
+                <p class="desc">Capturing the profound silence of loud moments through high-fidelity photography.</p>
+            </div>
+
+            <div class="feature-item reveal-section">
+                <div class="icon">💻</div>
+                <h3>Digital Core</h3>
+                <p class="desc">Building the infrastructure of the future with a focus on seamless immersion.</p>
+            </div>
+        </section>
+
+        <footer>Scroll for reveal</footer>
+
+        <section class="reveal-section" style="text-align: center; max-width: 600px; margin: 200px auto;">
+            <h2>The Premium Feel</h2>
+            <p class="desc">This section uses the cubic-bezier transition to pop-in from the void. The Intersection Observer handles the trigger logic while CSS manages the hardware-accelerated transforms.</p>
+        </section>
+    </main>
+
+    <script>
+        // Task 1: Intersection Observer for Scroll Reveal
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Task 2 Addition: Staggered Delay
+                    // If multiple items intersect at once, we apply a staggered feel
+                    // This demo applies it specifically to grid items appearing together
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        // Apply stagger delays to items in the same container if they reveal at once
+        const revealElements = document.querySelectorAll('.reveal-section');
+        
+        // Setup staggered delays for grid items specifically
+        const gridItems = document.querySelectorAll('.feature-grid .feature-item');
+        gridItems.forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.15}s`;
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Interaction Feedback: Log for the "Pop" (Task 2)
+        const items = document.querySelectorAll('.feature-item');
+        items.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                console.log('Focus shifted to:', item.querySelector('h3').innerText);
+            });
+        });
+    </script>
+</body>
+</html>
