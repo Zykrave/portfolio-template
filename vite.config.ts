@@ -16,9 +16,8 @@ export default defineConfig(({mode}) => {
       },
     },
     server: {
-      // HMR is disabled via DISABLE_HMR env var.
-      // File watching is disabled during edits.
-      hmr: process.env.DISABLE_HMR !== 'true',
+      // Configure local development server settings
+      hmr: process.env.DISABLE_HMR !== 'true', // Conditional Hot Module Replacement
     },
   };
 });

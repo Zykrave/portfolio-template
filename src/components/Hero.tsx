@@ -1,14 +1,19 @@
 import { motion } from "motion/react";
 import { config } from "../config";
 
+/**
+ * Hero Component
+ * Renders the primary landing section with high-fidelity visual effects.
+ * Utilizes Framer Motion for entrance animations and CSS clip-paths for geometric overlays.
+ */
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 px-6">
-      {/* Gritty Urban Grunge Texture Overlay */}
+      {/* Texture Layer: Composite overlay for gritty surface depth */}
       <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay" 
            style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/dark-matter.png")' }} />
       
-      {/* Aggressive Red Paint Slash Background */}
+      {/* Background Primitive: Distorted geometric slash using excessive scaling and rotation */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-32 md:h-64 bg-[#c0392b] rotate-[-15deg] blur-[2px] opacity-90 shadow-[0_0_50px_rgba(192,57,43,0.5)] z-0"
            style={{ 
              clipPath: 'polygon(10% 20%, 90% 0%, 100% 80%, 0% 100%)',

@@ -1,3 +1,7 @@
+/**
+ * AniList GraphQL Service
+ * Handles data fetching for user watching and completed anime lists.
+ */
 const ANILIST_URL = "https://graphql.anilist.co";
 
 const WATCHING_QUERY = `

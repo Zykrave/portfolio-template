@@ -22,18 +22,21 @@ export default function App() {
     restDelta: 0.001
   });
 
+  // Initialize scroll-triggered reveal animations via Intersection Observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            // Adds 'active' class to trigger CSS transitions when elements enter viewport
             entry.target.classList.add("active");
           }
         });
       },
-      { threshold: 0.08 }
+      { threshold: 0.08 } // Trigger when 8% of the element is visible
     );
 
+    // Bind observer to all elements with the .reveal class
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();

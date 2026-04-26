@@ -1,20 +1,54 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Urban Grunge: High-Fidelity Developer Portfolio
 
-# Run and deploy your AI Studio app
+![Project Screenshot](#) <!-- Replace with your actual screenshot -->
 
-This contains everything you need to run your app locally.
+A high-contrast, dark-mode digital space designed for developers and creators who thrive in emotional world-building. This template blends an "Urban Grunge" aesthetic with "Anime-Realistic" visual fidelity, built for performance and deep customization.
 
-View your app in AI Studio: https://ai.studio/apps/43cf17d5-ae42-4f8e-93de-abeec8bbbc3f
+## 🌑 The Aesthetic: "Calm but Dangerous"
+This portfolio isn't just a site; it's an atmosphere. 
+- **Typography**: Intentional pairing of high-impact display fonts and clean geometric sans-serifs.
+- **Atmosphere**: Distress textures, halftone overlays, and digital grain to simulate a physical, weathered interface.
+- **Interactions**: Staggered scroll reveals, custom matrix backgrounds, and fluid Framer Motion transitions.
 
-## Run Locally
+## 🛠 Tech Stack
+- **Framework**: React 19 + TypeScript
+- **Styling**: Tailwind CSS 4 + Framer Motion
+- **Animations**: `motion` (formerly framer-motion) for high-frequency interactions
+- **Integrations**: AniList GraphQL API for real-time activity tracking
 
-**Prerequisites:**  Node.js
+## 🚀 Quick Start
 
+### 1. Fork and Clone
+```bash
+git clone https://github.com/yourusername/your-repo-name.git
+cd your-repo-name
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Start Development
+```bash
+npm run dev
+```
+
+## ⚙️ Customization Guide
+
+The site is designed to be updated in one place. Open `src/config.ts` to change:
+
+| Parameter | Description |
+| :--- | :--- |
+| `name` | Your global brand/gamertag |
+| `username` | Your handle for API integrations (AniList, etc) |
+| `hero.bio` | Your professional philosophy / introduction |
+| `socials` | Links to GitHub, YouTube, and socials |
+| `skills` | Array of core competencies (toggles for Gold/Active states) |
+
+### Visuals
+- **Backgrounds**: Adjust global grain and noise in `src/index.css` under `.grunge-bg`.
+- **Colors**: Update the design system palette in the `@theme` block of `src/index.css`.
+
+## 📄 License
+MIT License. Feel free to use this as a base for your own digital home.
