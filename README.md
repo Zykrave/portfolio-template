@@ -1,6 +1,14 @@
 # Urban Grunge: High-Fidelity Developer Portfolio
 
-![Project Screenshot](#) <!-- Replace with your actual screenshot -->
+## 🖥️ Site Preview
+
+| Hero Section | Skills Showcase |
+| :---: | :---: |
+| ![Hero Section](https://api.screenshot.com/v1/get?url=https://ais-dev-fyuvoulhmuxglrhaun4djw-206872009245.asia-east1.run.app&width=1280&height=720) | ![Skills Showcase](https://api.screenshot.com/v1/get?url=https://ais-dev-fyuvoulhmuxglrhaun4djw-206872009245.asia-east1.run.app/services&width=1280&height=720) |
+
+| Immersive Footer | Activity Feed |
+| :---: | :---: |
+| ![Immersive Footer](https://api.screenshot.com/v1/get?url=https://ais-dev-fyuvoulhmuxglrhaun4djw-206872009245.asia-east1.run.app/footer&width=1280&height=720) | ![Activity Feed](https://api.screenshot.com/v1/get?url=https://ais-dev-fyuvoulhmuxglrhaun4djw-206872009245.asia-east1.run.app/archive&width=1280&height=720) |
 
 A high-contrast, dark-mode digital space designed for developers and creators who thrive in emotional world-building. This template blends an "Urban Grunge" aesthetic with "Anime-Realistic" visual fidelity, built for performance and deep customization.
 
