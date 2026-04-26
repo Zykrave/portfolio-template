@@ -4,11 +4,11 @@
 
 | Hero Section | Skills Showcase |
 | :---: | :---: |
-| ![Hero Section - Image 1](./images/preview-1.jpg) | ![Skills Showcase - Image 2](./images/preview-2.jpg) |
+| ![Hero Section - Image 1](./images/Screenshot%202026-04-26%20124022.png) | ![Skills Showcase - Image 2](./images/Screenshot%202026-04-26%20124037.png) |
 
 | Immersive Timeline & Social | Footer & Navigation |
 | :---: | :---: |
-| ![Timeline Section - Image 3](./images/preview-3.jpg) | ![Footer Section - Image 4](./images/preview-4.jpg) |
+| ![Timeline Section - Image 3](./images/Screenshot%202026-04-26%20124047.png) | ![Footer Section - Image 4](./images/Screenshot%202026-04-26%20124053.png) |
 
 A high-contrast, dark-mode digital space designed for developers and creators who thrive in emotional world-building. This template blends an "Urban Grunge" aesthetic with "Anime-Realistic" visuals for a portfolio that stands out.
 
